@@ -1,0 +1,119 @@
+<!Doctype html>
+<html>
+
+<head>
+    <title>Expense Tracing System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-            JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <style>
+        .header-container {
+            font-size: 40px;
+            text-align: center;
+            background: #FFCC99;
+            border-radius: 50px;
+            border: 1px solid blue;
+            margin-top: 10px;
+
+        }
+
+        .form-container {
+            /* margin-top: 40px; */
+            text-align: center;
+            background: #99CCFF;
+            height: 300px;
+            border-radius: 50px;
+            border:1px solid blue;
+        }
+
+        input[type=submit] {
+            width: 50%;
+            height: 50px;
+            border-radius: 20px;
+            font-size: 25px;
+            font-family: serif;
+            border:1px solid white;
+        }
+
+        input[type=submit]:hover {
+            background: #165A25;
+        }
+        input[type=file]{
+            background: #FFFFCC;
+            color:black;
+            border-radius: 50px;
+            border:1px solid black;
+            width:445px;
+            cursor:pointer;
+        }
+        .result-container{
+            
+        }
+        .results-container{
+            border:1px solid blue;
+            background:#CCFF99;
+            border-radius: 50px;
+            padding:20px;
+        }
+       </style>
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">></script>
+
+
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 header-container">
+            <header class="header">
+                <B>Expense Tracking System</B>
+            </header>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <br>
+
+    <!form>
+        <div class="row">
+            <div class="col-md-2"> </div>
+            <div class="form-container col-md-8">
+                <form  method="post" enctype="multipart/form-data">
+                  {{form.as_p}}
+                  {% csrf_token %}
+                        <br>
+                        <br>    <br>    <br>
+                    <input type="file" name="document" placeholder="Choose Image" accept="image/*">
+                    <br>
+                    <br>
+                    <br>
+                    <input type="submit" value="Upload Image" id="submit" name="submit" class="btn btn-success">
+                </form>
+            </div>
+            {{form1}}
+            <div class="col-md-2"></div>
+        </div>
+        <br>
+        <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="results-container row">
+                <div class="col-md-6 img-container">
+                    <h3>Uploaded Image</h3>
+                    <img src= "\media\img.png" class="img-fluid ">
+                </div>
+
+                <div class="result-container col-md-6 " id="res">
+                    <h3>Scanned Text</h3>
+                    <pre> {{ text }}</pre>
+                </div>
+              
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        
+        </div>
+</body>
+
+</html>
